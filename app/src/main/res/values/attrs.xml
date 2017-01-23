@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MaterialWheel">
+        <attr name="textSize" format="integer" />
+        <attr name="lineSpacing" format="float" />
+        <attr name="innerTextColor" format="integer" />
+        <attr name="outerTextColor" format="integer" />
+        <attr name="dividerColor" format="integer" />
+        <attr name="outerVisibleItems" format="integer" />
+        <attr name="loop" format="boolean" />
+    </declare-styleable>
+</resources>
