@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import android.view.View
 import android.content.Context.VIBRATOR_SERVICE
 import android.os.Vibrator
-import timber.log.Timber
-import java.util.*
 
 class MaterialWheel : RecyclerView {
 
@@ -79,7 +77,6 @@ class MaterialWheel : RecyclerView {
             if (velocity == 0) {
                 vibrator.vibrate(1)
             } else {
-                Timber.i("Skipped vibration")
                 velocity = 0
             }
         }
