@@ -3,6 +3,7 @@ package io.kaeawc.materialwheel
 import android.app.Activity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.LinearSnapHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
@@ -28,6 +29,8 @@ class MainActivity : Activity() {
         wheel.adapter = adapter
         val layoutManager = LinearLayoutManager(this)
         wheel.layoutManager = layoutManager
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(wheel)
         wheel.addOnScrollListener(WheelScrollListener(layoutManager))
     }
 
