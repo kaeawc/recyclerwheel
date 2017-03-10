@@ -1,6 +1,5 @@
 package io.kaeawc.materialwheel
 
-import android.graphics.Typeface
 import android.widget.FrameLayout
 import java.lang.ref.WeakReference
 
@@ -29,7 +28,6 @@ class WheelTextView(view: FrameLayout, textView: PerspectiveTextView) : WheelVie
         val bottomBelowMiddle = (frame.bottom - middle) > 0
         val topAboveMiddle = (middle - frame.top) > 0
         v.textSize = 20f
-        // v.setTypeface(null, Typeface.BOLD)
 
         val absoluteDistance = when {
 
