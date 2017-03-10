@@ -15,7 +15,6 @@ class WheelTextView(view: FrameLayout, textView: PerspectiveTextView) : WheelVie
     override fun bindData(value: String) {
         val v = getTextView()
         v.text = value
-        v.alpha = 0f
     }
 
     override fun getValue(): String = getTextView().text.toString()
@@ -50,9 +49,7 @@ class WheelTextView(view: FrameLayout, textView: PerspectiveTextView) : WheelVie
         val degrees = (1 - modifier) * 90
 
         if (isSelected) {
-            v.alpha = 1f
             v.setXAxisRotation(0f)
-            v.setTypeface(null, Typeface.BOLD)
             return true
         } else if (topAboveMiddle) {
             // above
@@ -62,7 +59,6 @@ class WheelTextView(view: FrameLayout, textView: PerspectiveTextView) : WheelVie
             v.setXAxisRotation(-degrees)
         }
 
-        v.alpha = modifier
         v.setTypeface(null, Typeface.NORMAL)
         return false
     }
