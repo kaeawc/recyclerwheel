@@ -6,6 +6,8 @@ import android.util.AttributeSet
 import android.view.View
 import android.content.Context.VIBRATOR_SERVICE
 import android.os.Vibrator
+import timber.log.Timber
+import java.util.*
 
 class MaterialWheel : RecyclerView {
 
@@ -27,6 +29,10 @@ class MaterialWheel : RecyclerView {
 
     var selectedPosition: Int = 0
     var selectedValue: String? = null
+
+    var vibrationSkip: Boolean = false
+    var lastFirstVisible: Int = 0
+    var velocity: Int = 0
 
     constructor(context: Context) : this(context, null, 0)
 
@@ -58,19 +64,38 @@ class MaterialWheel : RecyclerView {
                 }
             }
         }
+
+        velocity = Math.abs(firstVisible - lastFirstVisible)
+        lastFirstVisible = firstVisible
     }
 
     fun onSelected(viewHolder: WheelView<*>, position: Int) {
         if (position != selectedPosition || selectedValue.isNullOrBlank()) {
             selectedPosition = position
             selectedValue = viewHolder.getValue()
+
             val context = this.context ?: return
             val vibrator = context.getSystemService(VIBRATOR_SERVICE) as Vibrator
-            vibrator.vibrate(1)
+            if (velocity == 0) {
+                vibrator.vibrate(1)
+            } else {
+                Timber.i("Skipped vibration")
+                velocity = 0
+            }
         }
     }
 
-    fun onScrollStop() {
-        // do something on stop
+    fun onScrollIdle() {
+        vibrationSkip = false
+        velocity = 0
+    }
+
+    fun onScrollDragging() {
+        vibrationSkip = true
+    }
+
+    fun onScrollSettling() {
+        vibrationSkip = true
+        velocity = 1
     }
 }

@@ -13,7 +13,9 @@ class WheelScrollListener(layoutManager: LinearLayoutManager) : RecyclerView.OnS
         if (recyclerView !is MaterialWheel) return
 
         when (newState) {
-            RecyclerView.SCROLL_STATE_IDLE -> recyclerView.onScrollStop()
+            RecyclerView.SCROLL_STATE_IDLE -> recyclerView.onScrollIdle()
+            RecyclerView.SCROLL_STATE_DRAGGING -> recyclerView.onScrollDragging()
+            RecyclerView.SCROLL_STATE_SETTLING -> recyclerView.onScrollSettling()
         }
     }
 
