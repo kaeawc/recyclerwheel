@@ -21,7 +21,7 @@ class MainActivity : Activity() {
 
         // Setup data
         val eight_foot = 8 * 12
-        val three_foot = 3 * 12
+        val three_foot = 3 * 12 - 1
         val data = (three_foot..eight_foot).map { getImperialAndMetric(it) }.toMutableList()
 
         // Initialize wheel with data
@@ -29,8 +29,13 @@ class MainActivity : Activity() {
         wheel.adapter = adapter
         val layoutManager = LinearLayoutManager(this)
         wheel.layoutManager = layoutManager
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(wheel)
         wheel.addOnScrollListener(WheelScrollListener(layoutManager))
+
+        wheel.scrollToPosition(28)
+
+        wheel.postDelayed({
+            val snapHelper = LinearSnapHelper()
+            snapHelper.attachToRecyclerView(wheel)
+        }, 50)
     }
 }
