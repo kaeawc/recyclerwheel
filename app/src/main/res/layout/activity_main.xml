@@ -11,7 +11,7 @@
     <include
         layout="@layout/wheel"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="256dp"
         android:layout_marginLeft="64dp"
         android:layout_marginStart="64dp"
         android:layout_marginRight="64dp"
