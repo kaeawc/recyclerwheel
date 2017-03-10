@@ -28,6 +28,8 @@ class WheelTextView(view: FrameLayout, textView: PerspectiveTextView) : WheelVie
         val middle = totalHeight / 2
         val bottomBelowMiddle = (frame.bottom - middle) > 0
         val topAboveMiddle = (middle - frame.top) > 0
+        v.textSize = 20f
+        // v.setTypeface(null, Typeface.BOLD)
 
         val absoluteDistance = when {
 
@@ -59,7 +61,6 @@ class WheelTextView(view: FrameLayout, textView: PerspectiveTextView) : WheelVie
             v.setXAxisRotation(-degrees)
         }
 
-        v.setTypeface(null, Typeface.NORMAL)
         return false
     }
 

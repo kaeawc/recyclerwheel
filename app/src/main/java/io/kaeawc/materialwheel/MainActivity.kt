@@ -4,7 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.wheel.*
 
 class MainActivity : Activity() {
 
@@ -33,6 +33,4 @@ class MainActivity : Activity() {
         snapHelper.attachToRecyclerView(wheel)
         wheel.addOnScrollListener(WheelScrollListener(layoutManager))
     }
-
-
 }

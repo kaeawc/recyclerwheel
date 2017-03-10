@@ -4,11 +4,8 @@ import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.View
-import android.widget.Toast
 import android.content.Context.VIBRATOR_SERVICE
 import android.os.Vibrator
-
-
 
 class MaterialWheel : RecyclerView {
 
@@ -74,6 +71,6 @@ class MaterialWheel : RecyclerView {
     }
 
     fun onScrollStop() {
-        Toast.makeText(context, selectedValue, Toast.LENGTH_SHORT).show()
+        // do something on stop
     }
 }
