@@ -12,6 +12,7 @@
         android:layout_width="256dp"
         android:layout_height="256dp"
         tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"/>
+        tools:layout_editor_absoluteX="8dp"
+        />
 
 </RelativeLayout>
