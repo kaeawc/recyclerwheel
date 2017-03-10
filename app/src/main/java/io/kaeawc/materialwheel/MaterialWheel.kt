@@ -5,6 +5,10 @@ import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Toast
+import android.content.Context.VIBRATOR_SERVICE
+import android.os.Vibrator
+
+
 
 class MaterialWheel : RecyclerView {
 
@@ -63,6 +67,9 @@ class MaterialWheel : RecyclerView {
         if (position != selectedPosition || selectedValue.isNullOrBlank()) {
             selectedPosition = position
             selectedValue = viewHolder.getValue()
+            val context = this.context ?: return
+            val vibrator = context.getSystemService(VIBRATOR_SERVICE) as Vibrator
+            vibrator.vibrate(1)
         }
     }
 
