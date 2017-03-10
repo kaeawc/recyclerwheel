@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.widget.TextView
+import timber.log.Timber
 
 class PerspectiveTextView : TextView {
 
@@ -26,6 +27,6 @@ class PerspectiveTextView : TextView {
             xAxisDegrees > 0 -> height.toFloat()
             else -> 0f
         }
-        anim.xAxisDegrees = xAxisDegrees
+        anim.xAxisDegrees = xAxisDegrees * 1.75f
     }
 }
