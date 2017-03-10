@@ -33,6 +33,7 @@ class MainActivity : Activity() {
 
         wheel.scrollToPosition(28)
 
+        // SnapHelper must be delayed in its attachment because item size changes while scrolling
         wheel.postDelayed({
             val snapHelper = LinearSnapHelper()
             snapHelper.attachToRecyclerView(wheel)
